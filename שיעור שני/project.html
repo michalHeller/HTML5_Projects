@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="project.css">
+<header>hhhhhh</header>
+
+<article>
+    <table>
+        <tr>
+            <td id="td1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="td2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="td3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+        <tr>
+            <td id="td4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="td5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="td6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+        <tr>
+            <td id="td7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="td8" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td id="td9" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+    </table>
+</article>
+<br><br>
+<nav>
+    <img id="img1" src="מסך_001.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td1" />
+    <img id="img7" src="מסך_007.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td2" />
+    <img id="img4" src="מסך_004.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td3" />
+    <img id="img8" src="מסך_008.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td4" />
+    <img id="img2" src="מסך_002.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td5" />
+    <img id="img3" src="מסך_003.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td6" />
+    <img id="img6" src="מסך_006.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td7" />
+    <img id="img5" src="מסך_005.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td8" />
+    <img id="img9" src="מסך_009.jpg" draggable="true" ondragstart="drag(event)" data-myButton="td9" />
+</nav>
+
+<audio id="audio1">
+    <source src="mi-80239.mp3" type="audio/mpeg" />
+</audio>
+<script>
+
+    function drag(ev) {
+        ev.dataTransfer.setData("Text", ev.target.id);
+        ev.dataTransfer.effectAllowed = "move";
+        ev.srcElement.style.top = ev.y + "px";
+        ev.srcElement.style.left = ev.x + "px";
+    }
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data));
+        var t = ev.target;
+        if (ev.target.dataset.td == document.getElementById(data).id) {
+            document.getElementById("rerere").play();
+
+        }
+    }
+
+    // function drop(ev) {
+    //     ev.preventDefault();
+    //     var data = ev.dataTransfer.getData("Text");
+    //     var t = ev.target;
+    //     if (ev.target.dataset.td == document.getElementById(data).id) {
+    //         ev.target.appendChild(document.getElementById(data));
+    //     }
+    // }
+
+
+
+
+</script>
+
+</html>
